@@ -1,4 +1,4 @@
-# JavaScript_Data_Structures_and_Algorithms
+# JavaScript Data Structures and Algorithms
 
 ## Helpful Resources:
 [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
