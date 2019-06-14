@@ -53,6 +53,16 @@ class SinglyLinkedList{
         return oldHead;
     }
     unshift(val){
+        var newNode = new Node(val);
+        if (this.length === 0){
+            this.head = newNode;
+            this.tail = this.head;
+        } else { //if the linked list already has at least one node
+            newNode.next = this.head;
+            this.head = newNode;
+        }
         
+        this.length++;
+        return this;
     }
 }
