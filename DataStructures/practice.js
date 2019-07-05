@@ -74,4 +74,37 @@ class SinglyLinkedList{
             counter++;
         } return current;
     }
+    set(index, val){
+        var findNode = this.get(index);
+        if (findNode !== undefined){
+            findNode.val = val;
+            return true
+        }
+        return false
+    }
+    insert(index, val){
+        if (index < 0|| index >= this.length) return undefined;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+        
+        var newNode = new Node(val);
+        var prevNode = this.get(index-1)
+        newNode.next = prevNode.next;
+        prevNode.next = newNode;
+        this.length++;
+        return newNode;
+    }
+    remove (index){
+        if (index < 0 || index >= this.length) return undefined;
+        if (index === this.length-1) return this.pop();
+        if (index === 0) return this.shift();
+        
+        var prevNode = this.get(index-1);
+        var removeNode = prevNode.next;
+        prevNode.next = removeNode.next;
+        removeNode.next = null;
+        this.length--;
+        return removeNode;
+    }
+    
 }
