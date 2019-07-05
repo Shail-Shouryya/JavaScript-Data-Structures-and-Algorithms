@@ -31,8 +31,8 @@ class SinglyLinkedList{
         } else {
             var newTail = current;
             while (current.next !== null){
-                current = current.next;
                 newTail = current;
+                current = current.next;
             }
         }
         this.tail = newTail;
