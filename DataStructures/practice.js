@@ -172,3 +172,28 @@ class Stack{
         return oldTop;
     }
 }
+
+class QueueNode{
+    constructor(val){
+        this.val = val;
+        this.next = null;
+    }
+}
+class Queue{
+    constructor(){
+        this.first = null;
+        this.last = null;
+        this.length = 0;
+    }
+    
+    enqueue(val){
+        var newEnd = new QueueNode(val);
+        if (this.length === 0){
+            this.last = newEnd;
+            this.first = newEnd;
+        } else {
+            this.last.next = newEnd;
+            this.last = newEnd;
+        } return ++this.length; // pre-increment the value since post incrementing length will show the user the length of the queue before the most recent addition
+    }
+}
