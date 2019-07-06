@@ -136,3 +136,39 @@ class DoublyLinkedList{
     
 }
 
+class StackNode{
+    constructor(val){
+        this.val = val;
+        this.next = null;
+    }
+}
+class Stack{
+    constructor(){
+        this.top = null;
+        this.bottom = null;
+        this.size = 0;
+    }
+    
+    push(val){
+        var newTop = new StackNode(val);
+        if (this.size === 0){
+            this.top = newTop;
+            this.bottom = newTop;
+        } else {
+            newTop.next = this.top;
+            this.top = newTop;
+        } return ++this.size; // pre-increment the value since post incrementing size will show the user the size of the stack before the most recent addition
+    }
+    pop(){
+        if (this.size === 0) return undefined;
+        var oldTop = this.top;
+        if (this.top === this.bottom){ // this.size === 1
+            this.top = null;
+            this.bottom = null;
+        } else {
+            this.top = oldTop.next;
+            oldTop.next = null;
+        } this.size--;
+        return oldTop;
+    }
+}
