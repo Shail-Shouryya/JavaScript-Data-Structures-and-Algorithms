@@ -4,7 +4,6 @@ class SLLNode {
         this.next = null;
     }
 }
-
 class SinglyLinkedList{
     constructor (){
         this.head = null;
@@ -123,7 +122,6 @@ class SinglyLinkedList{
     }
 }
 
-
 class DLLNode {
     constructor (val){
         this.val = val;
@@ -131,7 +129,6 @@ class DLLNode {
         this.prev = null;
     }
 }
-
 class DoublyLinkedList{
     
 }
