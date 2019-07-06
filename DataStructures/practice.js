@@ -196,4 +196,16 @@ class Queue{
             this.last = newEnd;
         } return ++this.length; // pre-increment the value since post incrementing length will show the user the length of the queue before the most recent addition
     }
+    dequeue(){
+        if (this.length === 0) return undefined;
+        var oldFront = this.first;
+        if (this.length === 1){
+            this.first = null;
+            this.last = null;
+        } else {
+            this.first = oldFront.next;
+            oldFront.next = null;
+        } this.size--;
+        return oldFront;
+    }
 }
