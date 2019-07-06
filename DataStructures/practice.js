@@ -1,4 +1,4 @@
-class Node {
+class SLLNode {
     constructor(val){
         this.val = val;
         this.next = null;
@@ -12,7 +12,7 @@ class SinglyLinkedList{
         this.length = 0;
     }
     push(val){
-        var newNode = new Node(val);
+        var newNode = new SLLNode(val);
         if (this.length === 0){
             this.head = newNode;
             this.tail = this.head;
@@ -53,7 +53,7 @@ class SinglyLinkedList{
         return oldHead;
     }
     unshift(val){
-        var newNode = new Node(val);
+        var newNode = new SLLNode(val);
         if (this.length === 0){
             this.head = newNode;
             this.tail = this.head;
@@ -87,7 +87,7 @@ class SinglyLinkedList{
         if (index === this.length) return !!this.push(val);
         if (index === 0) return !!this.unshift(val);
         
-        var newNode = new Node(val);
+        var newNode = new SLLNode(val);
         var prevNode = this.get(index-1)
         newNode.next = prevNode.next;
         prevNode.next = newNode;
@@ -106,5 +106,20 @@ class SinglyLinkedList{
         this.length--;
         return removeNode;
     }
-    
+    reverse(){
+        var current = this.head;
+        this.head = this.tail;
+        this.tail = this.head;
+        var prev = null;
+        var next;
+        
+        for (i=0; i<this.length; i++){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return this;
+    }
 }
+
