@@ -131,3 +131,8 @@ class DLLNode {
         this.prev = null;
     }
 }
+
+class DoublyLinkedList{
+    
+}
+
