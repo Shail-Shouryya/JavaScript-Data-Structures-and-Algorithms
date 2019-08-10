@@ -25,10 +25,11 @@ class SinglyLinkedList{
     pop() {
         if (this.length === 0) return undefined;
         var current = this.head;
+        var newTail = current;
         if (this.length === 1){
-            this.head = this.tail = null;
+            this.head = null;
+            newTail = this.head;
         } else {
-            var newTail = current;
             while (current.next !== null){
                 newTail = current;
                 current = current.next;
