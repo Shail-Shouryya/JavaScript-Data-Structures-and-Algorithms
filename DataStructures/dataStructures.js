@@ -77,7 +77,7 @@ class SinglyLinkedList{
         var findNode = this.get(index);
         if (findNode !== undefined){
             findNode.val = val;
-            return true
+            return true;
         }
         return false
     }
