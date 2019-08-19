@@ -207,3 +207,101 @@ class Queue{
         return oldFront;
     }
 }
+
+class BSTNode{
+	constructor(val){
+		this.val = val;
+		this.left = left;
+		this.right = right;
+		this.freq = 1;
+	}
+}
+class BST{
+	constructor(){
+		this.root = null;
+	}
+	insert(val){
+		let newNode = new BSTNode(val);
+		if (this.root === null){
+			this.root = newNode;
+			return this;
+		}
+		let current = this.root;
+		while(true){
+			if (val < current.val){
+				if(current.left === null){
+					current.left = newNode;
+					return this;
+				} current = current.left;
+			} else if (val > current.val){
+				if (current.right === null){
+					current.right = newNode;
+					return this;
+				}
+			} else { // val === current.val
+				current.freq++;
+				return this;
+			}
+		}
+	}
+	find(val){
+		if (this.root === null) return undefined;
+		let current = this.root;
+		let found = false;
+		while (!found && current !== null){
+			if (val < current.val){
+				current = current.left
+			} else if (val > current.right){
+				current = current.right;
+			} else { // val === current.val
+				found = true;
+			}
+			if (!found) return undefined;
+			return current;
+		}
+	}
+	contains(val){
+		if (this.root === null) return undefined;
+		let current = this.root;
+		let found = false;
+		while (!found && current !== null){
+			if (val < current.val){
+				current = current.left;
+			} else if (val > current.right){
+				current = current.right;
+			} else { // val === current.val
+				return true;
+			}
+		} return false;
+	}
+	BFS(){
+		if (this.root === null) return undefined;
+		let queue = [];
+		let visitedNodes = [];
+		let current = this.root;
+		queue.push(current)
+		while (queue.length > 0){
+			current = queue.shift()
+			visitedNodes.push(current);
+			if (current.left !== null) queue.push(current.left);
+			if (current.right !== null) queue.push(current.right);
+		} return visitedNodes;
+	}
+	DFSPreOrder(){
+		if (this.root === null) return undefined;
+		let visitedNodes = [];
+		let current = this.root;
+		
+		function traverse(node){
+			visitedNodes.push(node); // this shows up as "node" in the return, so might want to use node.val to see values in the visitedNodes array
+			if (node.left !== null) traverse(node.left);
+			if (node.right !== null) traverse(node.right);
+		}
+		traverse(current);
+		return visitedNodes;
+	}
+	DFSInOrder(){
+		if (this.root === null) return undefined;
+		
+	}
+}
