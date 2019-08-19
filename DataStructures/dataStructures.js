@@ -302,6 +302,26 @@ class BST{
 	}
 	DFSInOrder(){
 		if (this.root === null) return undefined;
+		let visitedNodes = [];
 		
+		function traverse(node){
+			if (node.left !== null) traverse(node.left);
+			visitedNodes.push(node);
+			if (node.right !== null) traverse(node.right);
+		}
+		traverse(this.root);
+		return visitedNodes;
+	}
+	DFSPostOrder(){
+		if (this.root === null) return undefined;
+		let visitedNodes = [];
+		
+		function traverse(node){
+			if (node.left !== null) traverse(node.left);
+			if (node.right !== null) traverse(node.right);
+			visitedNodes.push(node);
+		}
+		traverse(this.root);
+		return visitedNodes;
 	}
 }
